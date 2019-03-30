@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заголовок страницы</title>
+    <link rel="stylesheet" href="/public/css/news.css">
+    <% include libs.ejs %>
+    <style>
+        html, body, #map{
+            margin: 0px;
+            height: 100%;
+            width:100%;
+        }
+    </style>
+</head>
+<header>
+    <% include menu.ejs%>
+</header>
+<body>
+<form method="post" action="/meets/:id">
+    <%if(request.session.participant){%>
+    <div class="form-group">
+        <%messages.forEach(function (message) {%>
+          <h3><%=message.author%></h3>
+          <p><%=message.text%></p>
+        <%})%>
+    </div>
+    <div class="form-group">
+        <textarea cols="400" name="textInput" rows="4">
+
+        </textarea>
+        <!--<input type="text" required name="textInput" id="textInput" placeholder="Введите текст сообщения">-->
+        <button type="submit" class="btn btn-success" name="send" value="send">Отправить сообщение</button>
+    </div>
+    <%} else {%>
+        <button type="submit" class="btn btn-success " name="join" value="join">Присоединиться</button>
+    <%}%>
+</form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+.icon {
+    max-height: 48px;
+    max-width: 48px;
+}
+
+.navbar-nav {
+    margin-left: 10px;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.nav-item{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+span{
+    font-family: "Indie Flower", cursive;
+}
+
+h1, h3, h5{
+    font-family: "Amatic SC", cursive;
+}
+
+p{
+    font-family: 'Pangolin', cursive;
+}

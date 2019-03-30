@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заголовок страницы</title>
+    <link rel="stylesheet" href="/public/css/news.css">
+    <% include libs.ejs %>
+</head>
+<header>
+    <% include menu.ejs%>
+</header>
+<body>
+    <ul>
+        <%meets.forEach(function (meet) {%>
+            <li><a href="/meets/<%= meet._id%>"><%= meet.name%></a></li>
+        <%})%>
+    </ul>
+    <form method="post" action="meets">
+        <button type="submit" class="btn btn-primary">Добавить встречу</button>
+    </form>
+</body>
+</html>

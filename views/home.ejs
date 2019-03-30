@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заголовок страницы</title>
+    <link rel="stylesheet" href="/public/css/news.css">
+    <% include libs.ejs %>
+    <style>
+        html, body, #map{
+            margin: 0px;
+            height: 100%;
+            width:100%;
+        }
+    </style>
+</head>
+<header>
+    <% include menu.ejs%>
+</header>
+<body>
+<div id="map">
+
+</div>
+<script>
+    async function initMap() {
+        var opt = {
+            center: {
+                lat:50.35554,
+                lng:36.36232
+            },
+            zoom: 12
+        };
+        var pos = opt.center;
+
+        var map = new google.maps.Map(
+          document.getElementById("map"), opt
+        );
+
+        let jsonString = await getMarkers("http://127.0.0.1:8000/markers");
+
+        let markers = JSON.parse(jsonString);
+
+        markers.forEach(function (marker) {
+            let position = {
+              lat: marker.lat,
+              lng: marker.lng
+            };
+            let dynamicMarker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: marker.name,
+            });
+            dynamicMarker.addListener("click", function () {
+                 window.location.href = `/meets/${marker._id}`;
+            })
+        })
+
+        google.maps.event.addListener(map, 'dblclick', function (event) {
+            let dynamicMarker = new google.maps.Marker({
+                position: event.latLng,
+                map: map,
+            });
+            dynamicMarker.addListener("click", async function () {
+                var currentCoords = {
+                    lat: this.position.lat(),
+                    lng: this.position.lng(),
+                }
+                await postData("http://127.0.0.1:8000/addMeet", currentCoords);
+                window.location.href = "http://127.0.0.1:8000/addMeet";
+            });
+        });
+12
+    }
+</script>
+<script>
+    var getMarkers =  function (url) {
+        return new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.onload = function () {
+                if(this.status === 200){
+                    resolve(this.response);
+                } else {
+                    var error = new Error(this.statusText);
+                    error.code = this.status;
+                    reject(error);
+                }
+            }
+            xhr.onerror = function () {
+                reject(new Error("Network Error"));
+            }
+            xhr.send();
+        });
+    }
+</script>
+<script>
+    var postData = function (url, data) {
+        return new Promise(function (resolve, reject) {
+            var jsonString = "jsonString="+JSON.stringify(data);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader("Content-Length",jsonString.length);
+            xhr.onload = function () {
+                if(this.status === 200){
+                    resolve(this.response);
+                } else {
+                    var error = new Error(this.statusText);
+                    error.code = this.status;
+                    reject(error);
+                }
+            }
+            xhr.onerror = function () {
+                reject(new Error("Network Error"));
+            }
+           xhr.send(jsonString);
+        });
+    };
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA9ys3Sud9FefUj5AR07lHhLntVWj7zwA
+&callback=initMap">
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "vaultboy324",
+  "version": "1.0.0",
+  "description": "learnJS",
+  "main": "config/index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "react": "^16.8.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "vaultboy324",
+  "license": "ISC"
+}

@@ -1,0 +1,18 @@
+{
+  "port": 8000,
+  "mongoose": {
+    "uri": "mongodb://localhost:27017/myService"
+  },
+  "session": {
+    "secret": "myAzureTestProject",
+    "key": "sid",
+    "cookie": {
+      "path": "/",
+      "httpOnly": true,
+      "maxAge": null
+    }
+  },
+  "routes":{
+    "markers": "/markers"
+  }
+}

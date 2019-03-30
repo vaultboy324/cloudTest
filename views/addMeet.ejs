@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заголовок страницы</title>
+    <link rel="stylesheet" href="/public/css/news.css">
+    <% include libs.ejs %>
+    <style>
+        html, body, #map{
+            margin: 0px;
+            height: 100%;
+            width:100%;
+        }
+    </style>
+</head>
+<header>
+    <% include menu.ejs%>
+    <% include timepicker/timepicker.ejs%>
+</header>
+<body>
+    <form method="post" action="/addMeet">
+        <div class="form-group">
+            <label for="idNameInput">Название</label>
+            <input type="text" class="form-control" required name="nameInput" id="idNameInput" aria-describedby="emailHelp" placeholder="Введите название встречи">
+        </div>
+        <div>
+            <%errors.forEach(function (error) {%>
+                <h3 class="text-danger"><%=error.text%></h3>
+            <%})%>
+        </div>
+        <button type="submit" class="btn btn-success" value="join">Подтвердить</button>
+    </form>
+</body>
+</html>

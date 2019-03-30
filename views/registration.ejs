@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заголовок страницы</title>
+    <link rel="stylesheet" href="/public/css/news.css">
+    <% include libs.ejs %>
+</head>
+<body>
+<form method="post" action="/registration" onsubmit="submit()">
+    <div class="form-group">
+        <label for="login">Логин</label>
+        <input type="text" required class="form-control" name="login" id="login" placeholder="Введите логин" pattern="[A-Za-z0-9]+$">
+    </div>
+    <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" required name="password" class="form-control" id="password" placeholder="Введите пароль" pattern="[A-Za-z0-9]+$">
+        <label for="repeatPassword">Повторите пароль</label>
+        <input type="password" required name="repeatPassword" class="form-control" id="repeatPassword" placeholder="Повторите пароль" pattern="[A-Za-z0-9]+$">
+    </div>
+    <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" required class="form-control" name="name" id="name" placeholder="Введите ваше имя" pattern="[A-Za-zА-Яа-я]+$">
+        <label for="lastName">Фамилия</label>
+        <input type="text" required class="form-control" name="lastName" id="lastName" placeholder="Введите вашу фамилию" pattern="[A-Za-zА-Яа-я]+$">
+        <label for="age">Возраст</label>
+        <input type="text" required class="form-control" name="age" id="age" placeholder="Введите ваш возраст" pattern="[0-9]+$">
+    </div>
+    <button type="submit" class="btn btn-primary">Подтвердить</button>
+</form>
+<div class="form-group">
+    <%errors.forEach(function(error){%>
+        <h3 class="text-danger"><%=error%></h3>
+    <%})%>
+</div>
+</body>
+</html>

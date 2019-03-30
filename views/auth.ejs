@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заголовок страницы</title>
+    <link rel="stylesheet" href="/public/css/news.css">
+    <% include libs.ejs %>
+</head>
+<body>
+<form method="post" action="/auth">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Логин</label>
+        <input type="text" required class="form-control" name="login" id="login" placeholder="Введите логин" pattern="[A-Za-z0-9]+$">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Пароль</label>
+        <input type="password" required name="password" class="form-control" id="password" placeholder="Введите пароль" pattern="[A-Za-z0-9]+$">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div class="form-group">
+    <%if(request.session.authFailed){%>
+        <h3 class="text-danger">Пользователь с данной парой: логин-пароль не найден</h3>
+    <%}%>
+</div>
+<h3><a href="/registration">У меня нет учётной записи</a></h3>
+</body>
+</html>

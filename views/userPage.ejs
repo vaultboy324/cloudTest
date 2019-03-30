@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заголовок страницы</title>
+    <link rel="stylesheet" href="/public/css/news.css">
+    <% include libs.ejs %>
+</head>
+<header>
+    <% include menu.ejs%>
+</header>
+<body>
+    <div class="container-fluid">
+        <div class="col col-6">
+
+        </div>
+        <div class="col col-6">
+            <h1><%= `${user.lastName} ${user.firstName}`%></h1>
+            <br>
+            <h5><%= `Возраст: ${user.age} лет`%></h5>
+            <br>
+            <%if(user.friends.length !== 0){%>
+                <h3>Список друзей:</h3>
+                <ul>
+                    <%user.friends.forEach(function(friend){%>
+                        <li><h5><a href="<%=`/user/${friend.login}`%>"><%= `${friend.lastName} ${friend.firstName}`%></a> </h5></li>
+                    <%})%>
+                </ul>
+            <%}%>
+        </div>
+    </div>
+</body>
+</html>
