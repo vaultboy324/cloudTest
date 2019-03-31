@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fdf8142b-674f-4d41-9697-c586f2c1062d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/Meet.js" beforeDir="false" afterPath="$PROJECT_DIR$/module/Meet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/module/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/addMeet.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/addMeet.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/auth.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5704">
-              <caret line="248" selection-start-line="248" selection-end-line="251" selection-end-column="3" />
+            <state relative-caret-position="2081">
+              <caret line="246" column="3" lean-forward="true" selection-start-line="246" selection-start-column="3" selection-end-line="246" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -45,8 +50,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+            <state relative-caret-position="69">
+              <caret line="3" column="171" selection-start-line="3" selection-start-column="171" selection-end-line="3" selection-end-column="171" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/addMeet.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/auth.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -54,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/User.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="74" column="74" selection-start-line="74" selection-start-column="74" selection-end-line="74" selection-end-column="74" />
+            <state relative-caret-position="23">
+              <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -69,20 +92,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5681">
-              <caret line="247" selection-start-line="247" selection-end-line="247" />
+            <state relative-caret-position="115">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/Meet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="115" column="21" lean-forward="true" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
+            <state relative-caret-position="23">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -132,9 +155,7 @@
         <option value="$PROJECT_DIR$/views/currentMeet.ejs" />
         <option value="$PROJECT_DIR$/views/meets.ejs" />
         <option value="$PROJECT_DIR$/views/timepicker/timepicker.ejs" />
-        <option value="$PROJECT_DIR$/views/addMeet.ejs" />
         <option value="$PROJECT_DIR$/views/registration.ejs" />
-        <option value="$PROJECT_DIR$/views/auth.ejs" />
         <option value="$PROJECT_DIR$/Model/models.js" />
         <option value="$PROJECT_DIR$/views/fonts/fonts.ejs" />
         <option value="$PROJECT_DIR$/public/css/news.css" />
@@ -146,6 +167,8 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/views/home.ejs" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/views/addMeet.ejs" />
+        <option value="$PROJECT_DIR$/views/auth.ejs" />
         <option value="$PROJECT_DIR$/config/config.json" />
         <option value="$PROJECT_DIR$/module/User.js" />
         <option value="$PROJECT_DIR$/module/Meet.js" />
@@ -265,12 +288,12 @@
       <workItem from="1553934038031" duration="14229000" />
       <workItem from="1553966381109" duration="9886000" />
       <workItem from="1554017684251" duration="29799000" />
-      <workItem from="1554062557632" duration="1328000" />
+      <workItem from="1554062557632" duration="3286000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191460000" />
+    <option name="totallyTimeSpent" value="193418000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -283,22 +306,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1920" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.10701107" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.10701107" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49973643" weight="0.32893288" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.62572485" weight="0.31057268" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6251977" visible="true" weight="0.31057268" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.704797" weight="0.39867842" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32893288" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.82762253" visible="true" weight="0.32819384" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.17237744" side_tool="true" visible="true" weight="0.32819384" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.82762253" weight="0.32819384" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.37480232" side_tool="true" visible="true" weight="0.31057268" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -440,13 +464,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/addMeet.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/menu.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -489,13 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/auth.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mongoose/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -513,13 +523,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5704">
-          <caret line="248" selection-start-line="248" selection-end-line="251" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -534,20 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5681">
-          <caret line="247" selection-start-line="247" selection-end-line="247" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/models.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
@@ -555,17 +544,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/addMeet.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/auth.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2081">
+          <caret line="246" column="3" lean-forward="true" selection-start-line="246" selection-start-column="3" selection-end-line="246" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="171" selection-start-line="3" selection-start-column="171" selection-end-line="3" selection-end-column="171" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/module/User.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="74" column="74" selection-start-line="74" selection-start-column="74" selection-end-line="74" selection-end-column="74" />
+        <state relative-caret-position="23">
+          <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Meet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="115" column="21" lean-forward="true" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
+        <state relative-caret-position="23">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
