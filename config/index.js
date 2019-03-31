@@ -246,5 +246,7 @@ app.get("/user/:login", urlencodedParser, async function (request,response) {
     });
 });
 
-app.listen(8000);
+var port = process.env.PORT || 1337;
+
+app.listen(port);
 
