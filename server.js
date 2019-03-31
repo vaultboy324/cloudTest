@@ -11,7 +11,7 @@ var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 var app = express();
 var store = new MongoDBStore({
-    uri: config.mongoose.uri,
+    uri: process.env.CUSTOMCONNSTR_MyConnectionString || config.mongoose.uri,
     collection: 'mySessions'
 });
 

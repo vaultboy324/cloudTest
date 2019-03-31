@@ -3,7 +3,7 @@ var config = require('../config/config');
 
 module.exports = {
     createMeet: function (oMeetContext) {
-        mongoose.connect(config.mongoose.uri,{
+        mongoose.connect(process.env.CUSTOMCONNSTR_MyConnectionString ||config.mongoose.uri,{
             useNewUrlParser: true
         });
 
@@ -27,7 +27,7 @@ module.exports = {
         });
     },
     getMeets: async function () {
-        mongoose.connect(config.mongoose.uri,{
+        mongoose.connect(process.env.CUSTOMCONNSTR_MyConnectionString || config.mongoose.uri,{
             useNewUrlParser: true
         });
 
@@ -45,7 +45,7 @@ module.exports = {
         var sUserLogin = oParams.userLogin;
         var sId = oParams._id;
 
-        mongoose.connect(config.mongoose.uri,{
+        mongoose.connect(process.env.CUSTOMCONNSTR_MyConnectionString || config.mongoose.uri,{
             useNewUrlParser: true
         });
         let meetScheme = require('../Model/models').meetScheme;
@@ -65,7 +65,7 @@ module.exports = {
         }
     },
     getSingleMeet: async function(meetId){
-        mongoose.connect(config.mongoose.uri,{
+        mongoose.connect(process.env.CUSTOMCONNSTR_MyConnectionString || config.mongoose.uri,{
             useNewUrlParser: true
         });
         let meetScheme = require('../Model/models').meetScheme;
@@ -82,7 +82,7 @@ module.exports = {
         }
     },
     writeMessage: async function (oMeetContext) {
-        mongoose.connect(config.mongoose.uri,{
+        mongoose.connect(process.env.CUSTOMCONNSTR_MyConnectionString || config.mongoose.uri,{
             useNewUrlParser: true
         });
         if(oMeetContext.messageText !== ""){
@@ -95,7 +95,7 @@ module.exports = {
         }
     },
     joinToTheMeet: async function (oMeetContext) {
-        mongoose.connect(config.mongoose.uri,{
+        mongoose.connect(process.env.CUSTOMCONNSTR_MyConnectionString || config.mongoose.uri,{
             useNewUrlParser: true
         });
         var singleMeet = await this.getSingleMeet(oMeetContext.meetId);
@@ -103,7 +103,7 @@ module.exports = {
         singleMeet.save();
     },
     getMeetsByUser: async function(userLogin){
-        mongoose.connect(config.mongoose.uri,{
+        mongoose.connect(process.env.CUSTOMCONNSTR_MyConnectionString || config.mongoose.uri,{
             useNewUrlParser: true
         });
 
