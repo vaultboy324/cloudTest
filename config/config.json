@@ -1,7 +1,7 @@
 {
   "port": 8000,
   "mongoose": {
-    "uri": "mongodb://localhost:27017/myService"
+    "uri": "mongodb://7fbb8ecd-0ee0-4-231-b9ee:szPhOg94uGsTLU9J6hFDYOs5WwxXpGVk0tsJ0XYUsNSRs7so9wiOoMLQrZ2jbjj5xWlSbfjvltacWFX04aTPDA==@7fbb8ecd-0ee0-4-231-b9ee.documents.azure.com:10255/?ssl=true"
   },
   "session": {
     "secret": "myAzureTestProject",
