@@ -4,7 +4,7 @@ var config = require('../config/config');
 module.exports = {
     createUser: function (oUserContext) {
         mongoose.connect(config.mongoose.uri,{
-            useNewUrlParser: true
+         //   useNewUrlParser: true
         });
 
         let userScheme = require('../Model/models').userScheme;
@@ -23,7 +23,7 @@ module.exports = {
     },
     getAllUsers: async function(){
         mongoose.connect(config.mongoose.uri,{
-            useNewUrlParser: true
+           // useNewUrlParser: true
         });
 
         let userScheme = require('../Model/models').userScheme;
@@ -34,7 +34,7 @@ module.exports = {
     },
     getUserByLogin: async function(userLogin){
         mongoose.connect(config.mongoose.uri,{
-            useNewUrlParser: true
+           // useNewUrlParser: true
         });
 
         let userScheme = require('../Model/models').userScheme;
@@ -73,7 +73,7 @@ module.exports = {
     },
     getUserByLogPass: async function(oAuthContext){
         mongoose.connect(config.mongoose.uri,{
-            useNewUrlParser: true
+           // useNewUrlParser: true
         });
 
         let userScheme = require('../Model/models').userScheme;
