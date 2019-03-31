@@ -2,10 +2,13 @@
   "name": "vaultboy324",
   "version": "1.0.0",
   "description": "learnJS",
-  "main": "config/index.js",
+  "main": "index.js",
   "dependencies": {
     "express": "^4.16.4",
-    "react": "^16.8.5"
+    "react": "^16.8.5",
+    "mongoose": "^5.4.20",
+    "express-session": "1.15.6",
+    "connect-mongodb-session": "^2.1.1"
   },
   "devDependencies": {},
   "scripts": {

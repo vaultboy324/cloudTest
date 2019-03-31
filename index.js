@@ -2,8 +2,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie');
-var config = require('./config');
-const mongoose = require("mongoose");
+var config = require('./config/config');
+//const mongoose = require("mongoose");
 var session = require('express-session')
 var MongoDBStore = require('connect-mongodb-session')(session);
 
@@ -40,7 +40,7 @@ app.get('/', async function (request, response) {
         return response.redirect("/auth");
     }
     request.session.authFailed = false;
-    var meets = await require('../module/Meet').getMeets(request.session.login);
+    var meets = await require('./module/Meet').getMeets(request.session.login);
     response.render('home', {
         request: request,
         response: response,
@@ -53,7 +53,7 @@ app.get('/home', async function (request, response) {
         return response.redirect("/auth");
     };
     request.session.authFailed = false;
-    var meets = await require('../module/Meet').getMeets(request.session.login);
+    var meets = await require('./module/Meet').getMeets(request.session.login);
     response.render('home', {
         request: request,
         response: response,
@@ -72,7 +72,7 @@ app.get("/auth", function (request, response) {
 });
 
 app.post("/auth", urlencodedParser, async function (request, response) {
-    let user =  await require('../module/User').getUserByLogPass({
+    let user =  await require('./module/User').getUserByLogPass({
         login: request.body.login,
         password: request.body.password
     });
@@ -94,7 +94,7 @@ app.get("/logout", urlencodedParser, function (request, response) {
 
 app.get("/meets", urlencodedParser, async function (request, response) {
 
-    var meets = await require('../module/Meet').getMeetsByUser(request.session.login);
+    var meets = await require('./module/Meet').getMeetsByUser(request.session.login);
 
     return response.render("meets",{
         request: request,
@@ -126,7 +126,7 @@ app.get("/addMeet/:lat/:lng", urlencodedParser, function (request, response) {
 
 app.post("/addMeet", urlencodedParser, function (request, response) {
     if(request.body.nameInput){
-        require('../module/Meet').createMeet({
+        require('./module/Meet').createMeet({
             name: request.body.nameInput,
             creator: request.session.login,
             lat: request.session.lat,
@@ -142,13 +142,13 @@ app.post("/addMeet", urlencodedParser, function (request, response) {
 });
 
 app.get("/markers", urlencodedParser, async function (request, response) {
-    let meets = await require('../module/Meet').getMeets();
+    let meets = await require('./module/Meet').getMeets();
     return response.json(meets);
 });
 
 app.get("/meets/:id", urlencodedParser, async function (request, response) {
     try {
-        request.session.participant = await require('../module/Meet').getParticipantFlag({
+        request.session.participant = await require('./module/Meet').getParticipantFlag({
             userLogin: request.session.login,
             _id: request.params.id
         });
@@ -158,7 +158,7 @@ app.get("/meets/:id", urlencodedParser, async function (request, response) {
 
     }
     try {
-        var singleMeet = await require('../module/Meet').getSingleMeet(request.params.id);
+        var singleMeet = await require('./module/Meet').getSingleMeet(request.params.id);
     }
     catch (e) {
         var messages = [];
@@ -175,13 +175,13 @@ app.get("/meets/:id", urlencodedParser, async function (request, response) {
 
 app.post("/meets/:id", urlencodedParser, function(request, response) {
     if(request.body.join){
-        require('../module/Meet').joinToTheMeet({
+        require('./module/Meet').joinToTheMeet({
            meetId: request.session.meetId,
            userLogin: request.session.login
         });
     }
     else{
-        require('../module/Meet').writeMessage({
+        require('./module/Meet').writeMessage({
             meetId: request.session.meetId,
             author: `${request.session.lastName} ${request.session.name}`,
             messageText: request.body.textInput
@@ -192,7 +192,7 @@ app.post("/meets/:id", urlencodedParser, function(request, response) {
 });
 
 app.get("/users", urlencodedParser, async function (request, response) {
-    let users = await await require('../module/User').getAllUsers();
+    let users = await await require('./module/User').getAllUsers();
     return response.json(users);
 });
 
@@ -211,7 +211,7 @@ app.get("/registration", urlencodedParser, function (request, response) {
 });
 
 app.post("/registration", urlencodedParser, async function (request, response) {
-    let errors = await require('../module/User').validate({
+    let errors = await require('./module/User').validate({
        login: request.body.login,
        password: request.body.password,
        repeatPassword: request.body.repeatPassword,
@@ -225,7 +225,7 @@ app.post("/registration", urlencodedParser, async function (request, response) {
         return response.redirect("/registration");
     }
 
-    require('../module/User').createUser({
+    require('./module/User').createUser({
         login: request.body.login,
         password: request.body.password,
         age: request.body.age,
@@ -236,7 +236,7 @@ app.post("/registration", urlencodedParser, async function (request, response) {
 });
 
 app.get("/user/:login", urlencodedParser, async function (request,response) {
-    var user = await require('../module/User').getUserByLogin(request.params.login);
+    var user = await require('./module/User').getUserByLogin(request.params.login);
     console.log(user);
     return response.render("userPage",{
         request: request,
@@ -246,6 +246,7 @@ app.get("/user/:login", urlencodedParser, async function (request,response) {
     });
 });
 
-let port = process.env.port || 1337;
-
-app.listen(port);
+var server = app.listen(process.env.PORT || '8080', function () {
+   console.log('App listen on port %s', server.address().port);
+   console.log('Press Ctrl+C to quit');
+});
