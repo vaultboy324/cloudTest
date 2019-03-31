@@ -35,7 +35,7 @@
           document.getElementById("map"), opt
         );
 
-        let jsonString = await getMarkers("http://127.0.0.1:8000/markers");
+        let jsonString = await getMarkers("/markers");
 
         let markers = JSON.parse(jsonString);
 
@@ -64,8 +64,8 @@
                     lat: this.position.lat(),
                     lng: this.position.lng(),
                 }
-                await postData("http://127.0.0.1:8000/addMeet", currentCoords);
-                window.location.href = "http://127.0.0.1:8000/addMeet";
+                await postData("/addMeet", currentCoords);
+                window.location.href = "/addMeet";
             });
         });
 12
