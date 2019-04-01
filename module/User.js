@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
+var env = require('dotenv').load;
 var config = require('../config/config');
 
 module.exports = {
     createUser: function (oUserContext) {
-        mongoose.connect(config.mongoose.uri,{
+        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
            useNewUrlParser: true,
             auth: {
-               user: config.mongoose.user,
-                password: config.mongoose.password
+               user: process.env.COSMOSDB_USER,
+                password: process.env.COSMOSDB_PASSWORD
             }
         });
 
@@ -23,14 +24,14 @@ module.exports = {
             friends: [],
             friendRequests: []
         });
-        user.update();
+        user.save();
     },
     getAllUsers: async function(){
-        mongoose.connect(config.mongoose.uri,{
+        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
             useNewUrlParser: true,
             auth: {
-                user: config.mongoose.user,
-                password: config.mongoose.password
+                user: process.env.COSMOSDB_USER,
+                password: process.env.COSMOSDB_PASSWORD
             }
         });
 
@@ -41,11 +42,11 @@ module.exports = {
         return users;
     },
     getUserByLogin: async function(userLogin){
-        mongoose.connect(config.mongoose.uri,{
+        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
             useNewUrlParser: true,
             auth: {
-                user: config.mongoose.user,
-                password: config.mongoose.password
+                user: process.env.COSMOSDB_USER,
+                password: process.env.COSMOSDB_PASSWORD
             }
         });
 
@@ -84,11 +85,11 @@ module.exports = {
         return errors;
     },
     getUserByLogPass: async function(oAuthContext){
-        mongoose.connect(config.mongoose.uri,{
+        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
             useNewUrlParser: true,
             auth: {
-                user: config.mongoose.user,
-                password: config.mongoose.password
+                user: process.env.COSMOSDB_USER,
+                password: process.env.COSMOSDB_PASSWORD
             }
         });
 
