@@ -37,7 +37,7 @@ module.exports = {
         let userScheme = require('../Model/models').userScheme;
         let User = mongoose.model("users", userScheme);
 
-        let users = await User.find({}).select({"login": 1, "_id": 0}).lean().exec();
+        let users = await User.find({}).select({"login": 1, "_id": 0}).exec();
         return users;
     },
     getUserByLogin: async function(userLogin){
@@ -52,7 +52,7 @@ module.exports = {
         let userScheme = require('../Model/models').userScheme;
         let User = mongoose.model("users", userScheme);
 
-        let user = await User.findOne({login: userLogin}).lean().exec();
+        let user = await User.findOne({login: userLogin}).exec();
         return user;
     },
     validate: async function (formData) {
@@ -98,7 +98,7 @@ module.exports = {
         let user = await User.findOne({
            login: oAuthContext.login,
            password : oAuthContext.password
-        }).lean().exec();
+        }).exec();
 
         return user;
     }
