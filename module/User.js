@@ -57,8 +57,8 @@ module.exports = {
             errors.push(error);
         }
 
-        let users = await this.getUserByLogin(formData.login);
-        if(users.length){
+        let user = await this.getUserByLogin(formData.login);
+        if(user){
             let error = "Пользователь с данным логином уже существует";
             errors.push(error);
         }
