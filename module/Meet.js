@@ -4,7 +4,11 @@ var config = require('../config/config');
 module.exports = {
     createMeet: function (oMeetContext) {
         mongoose.connect(config.mongoose.uri,{
-           useNewUrlParser: true
+            useNewUrlParser: true,
+            auth: {
+                user: config.mongoose.user,
+                password: config.mongoose.password
+            }
         });
 
         let meetScheme = require('../Model/models').meetScheme;
@@ -28,7 +32,11 @@ module.exports = {
     },
     getMeets: async function () {
         mongoose.connect(config.mongoose.uri,{
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            auth: {
+                user: config.mongoose.user,
+                password: config.mongoose.password
+            }
         });
 
         let meetScheme = require('../Model/models').meetScheme;
@@ -46,7 +54,11 @@ module.exports = {
         var sId = oParams._id;
 
         mongoose.connect(config.mongoose.uri,{
-           useNewUrlParser: true
+            useNewUrlParser: true,
+            auth: {
+                user: config.mongoose.user,
+                password: config.mongoose.password
+            }
         });
         let meetScheme = require('../Model/models').meetScheme;
         let Meet = mongoose.model("meets", meetScheme);
@@ -66,7 +78,11 @@ module.exports = {
     },
     getSingleMeet: async function(meetId){
         mongoose.connect(config.mongoose.uri,{
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            auth: {
+                user: config.mongoose.user,
+                password: config.mongoose.password
+            }
         });
         let meetScheme = require('../Model/models').meetScheme;
         let Meet = mongoose.model("meets", meetScheme);
@@ -83,7 +99,11 @@ module.exports = {
     },
     writeMessage: async function (oMeetContext) {
         mongoose.connect(config.mongoose.uri,{
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            auth: {
+                user: config.mongoose.user,
+                password: config.mongoose.password
+            }
         });
         if(oMeetContext.messageText !== ""){
             var singleMeet = await this.getSingleMeet(oMeetContext.meetId);
@@ -96,7 +116,11 @@ module.exports = {
     },
     joinToTheMeet: async function (oMeetContext) {
         mongoose.connect(config.mongoose.uri,{
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            auth: {
+                user: config.mongoose.user,
+                password: config.mongoose.password
+            }
         });
         var singleMeet = await this.getSingleMeet(oMeetContext.meetId);
         singleMeet.participants.push(oMeetContext.userLogin);
@@ -104,7 +128,11 @@ module.exports = {
     },
     getMeetsByUser: async function(userLogin){
         mongoose.connect(config.mongoose.uri,{
-           useNewUrlParser: true
+            useNewUrlParser: true,
+            auth: {
+                user: config.mongoose.user,
+                password: config.mongoose.password
+            }
         });
 
         let meetScheme = require('../Model/models').meetScheme;
