@@ -23,7 +23,7 @@ module.exports = {
             messages: []
         });
 
-        meet.save(function (err) {
+        meet.update(function (err) {
            if(!err){
                console.log("Встреча добавлена");
            }
@@ -43,7 +43,7 @@ module.exports = {
         let Meet = mongoose.model("meets", meetScheme);
 
         try{
-            var meets = await Meet.find({}).exec();
+            var meets = await Meet.find({}).lean().exec();
             return meets;
         } catch (e) {
             return e;
@@ -67,7 +67,7 @@ module.exports = {
         var queryId = ObjectId(sId);
 
         try{
-            var meet = await Meet.findById(queryId).exec();
+            var meet = await Meet.findById(queryId).lean().exec();
             if(meet.participants.indexOf(sUserLogin) !== -1){
                 return true;
             }
@@ -91,7 +91,7 @@ module.exports = {
         var queryId = ObjectId(meetId);
 
         try{
-           let meet  = await Meet.findById(queryId).exec();
+           let meet  = await Meet.findById(queryId).lean().exec();
            return meet;
         } catch (e) {
             throw e;
@@ -111,7 +111,7 @@ module.exports = {
                author: oMeetContext.author,
                text: oMeetContext.messageText
             });
-            singleMeet.save();
+            singleMeet.update();
         }
     },
     joinToTheMeet: async function (oMeetContext) {
@@ -124,7 +124,7 @@ module.exports = {
         });
         var singleMeet = await this.getSingleMeet(oMeetContext.meetId);
         singleMeet.participants.push(oMeetContext.userLogin);
-        singleMeet.save();
+        singleMeet.update();
     },
     getMeetsByUser: async function(userLogin){
         mongoose.connect(config.mongoose.uri,{
@@ -139,7 +139,7 @@ module.exports = {
         let Meet = mongoose.model("meets", meetScheme);
 
         try{
-            var meets = await Meet.find({participants: userLogin}).exec();
+            var meets = await Meet.find({participants: userLogin}).lean().exec();
             return meets;
         } catch (e) {
             return e;

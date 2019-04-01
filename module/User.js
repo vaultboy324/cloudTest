@@ -23,7 +23,7 @@ module.exports = {
             friends: [],
             friendRequests: []
         });
-        user.save();
+        user.update();
     },
     getAllUsers: async function(){
         mongoose.connect(config.mongoose.uri,{
@@ -37,7 +37,7 @@ module.exports = {
         let userScheme = require('../Model/models').userScheme;
         let User = mongoose.model("users", userScheme);
 
-        let users = await User.find({}).select({"login": 1, "_id": 0}).exec();
+        let users = await User.find({}).select({"login": 1, "_id": 0}).lean().exec();
         return users;
     },
     getUserByLogin: async function(userLogin){
@@ -52,7 +52,7 @@ module.exports = {
         let userScheme = require('../Model/models').userScheme;
         let User = mongoose.model("users", userScheme);
 
-        let user = await User.findOne({login: userLogin}).exec();
+        let user = await User.findOne({login: userLogin}).lean().exec();
         return user;
     },
     validate: async function (formData) {
@@ -98,7 +98,7 @@ module.exports = {
         let user = await User.findOne({
            login: oAuthContext.login,
            password : oAuthContext.password
-        }).exec();
+        }).lean().exec();
 
         return user;
     }
