@@ -3,12 +3,8 @@ var config = require('../config/config');
 
 module.exports = {
     createMeet: function (oMeetContext) {
-        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
+        mongoose.connect(config.mongoose.uri,{
             useNewUrlParser: true,
-            auth: {
-                user: process.env.COSMOSDB_USER,
-                password: process.env.COSMOSDB_PASSWORD
-            }
         });
 
         let meetScheme = require('../Model/models').meetScheme;
@@ -31,12 +27,8 @@ module.exports = {
         });
     },
     getMeets: async function () {
-        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
+        mongoose.connect(config.mongoose.uri,{
             useNewUrlParser: true,
-            auth: {
-                user: process.env.COSMOSDB_USER,
-                password: process.env.COSMOSDB_PASSWORD
-            }
         });
 
         let meetScheme = require('../Model/models').meetScheme;
@@ -53,12 +45,8 @@ module.exports = {
         var sUserLogin = oParams.userLogin;
         var sId = oParams._id;
 
-        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
+        mongoose.connect(config.mongoose.uri,{
             useNewUrlParser: true,
-            auth: {
-                user: process.env.COSMOSDB_USER,
-                password: process.env.COSMOSDB_PASSWORD
-            }
         });
         let meetScheme = require('../Model/models').meetScheme;
         let Meet = mongoose.model("meets", meetScheme);
@@ -77,12 +65,8 @@ module.exports = {
         }
     },
     getSingleMeet: async function(meetId){
-        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
+        mongoose.connect(config.mongoose.uri,{
             useNewUrlParser: true,
-            auth: {
-                user: process.env.COSMOSDB_USER,
-                password: process.env.COSMOSDB_PASSWORD
-            }
         });
         let meetScheme = require('../Model/models').meetScheme;
         let Meet = mongoose.model("meets", meetScheme);
@@ -98,12 +82,8 @@ module.exports = {
         }
     },
     writeMessage: async function (oMeetContext) {
-        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
+        mongoose.connect(config.mongoose.uri,{
             useNewUrlParser: true,
-            auth: {
-                user: process.env.COSMOSDB_USER,
-                password: process.env.COSMOSDB_PASSWORD
-            }
         });
         if(oMeetContext.messageText !== ""){
             var singleMeet = await this.getSingleMeet(oMeetContext.meetId);
@@ -115,24 +95,16 @@ module.exports = {
         }
     },
     joinToTheMeet: async function (oMeetContext) {
-        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
+        mongoose.connect(config.mongoose.uri,{
             useNewUrlParser: true,
-            auth: {
-                user: process.env.COSMOSDB_USER,
-                password: process.env.COSMOSDB_PASSWORD
-            }
         });
         var singleMeet = await this.getSingleMeet(oMeetContext.meetId);
         singleMeet.participants.push(oMeetContext.userLogin);
         singleMeet.save();
     },
     getMeetsByUser: async function(userLogin){
-        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
+        mongoose.connect(config.mongoose.uri,{
             useNewUrlParser: true,
-            auth: {
-                user: process.env.COSMOSDB_USER,
-                password: process.env.COSMOSDB_PASSWORD
-            }
         });
 
         let meetScheme = require('../Model/models').meetScheme;

@@ -4,12 +4,8 @@ var config = require('../config/config');
 
 module.exports = {
     createUser: function (oUserContext) {
-        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
+        mongoose.connect(config.mongoose.uri,{
            useNewUrlParser: true,
-            auth: {
-               user: process.env.COSMOSDB_USER,
-                password: process.env.COSMOSDB_PASSWORD
-            }
         });
 
         let userScheme = require('../Model/models').userScheme;
@@ -27,12 +23,8 @@ module.exports = {
         user.save();
     },
     getAllUsers: async function(){
-        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
+        mongoose.connect(config.mongoose.uri,{
             useNewUrlParser: true,
-            auth: {
-                user: process.env.COSMOSDB_USER,
-                password: process.env.COSMOSDB_PASSWORD
-            }
         });
 
         let userScheme = require('../Model/models').userScheme;
@@ -42,12 +34,8 @@ module.exports = {
         return users;
     },
     getUserByLogin: async function(userLogin){
-        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
+        mongoose.connect(config.mongoose.uri,{
             useNewUrlParser: true,
-            auth: {
-                user: process.env.COSMOSDB_USER,
-                password: process.env.COSMOSDB_PASSWORD
-            }
         });
 
         let userScheme = require('../Model/models').userScheme;
@@ -85,12 +73,8 @@ module.exports = {
         return errors;
     },
     getUserByLogPass: async function(oAuthContext){
-        mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",{
+        mongoose.connect(config.mongoose.uri,{
             useNewUrlParser: true,
-            auth: {
-                user: process.env.COSMOSDB_USER,
-                password: process.env.COSMOSDB_PASSWORD
-            }
         });
 
         let userScheme = require('../Model/models').userScheme;
