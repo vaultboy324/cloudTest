@@ -35,7 +35,7 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.get('/', async function (request, response) {
+app.get('/', async (request, response) => {
     if(!request.session.isAutorized){
         return response.redirect("/auth");
     }
@@ -48,7 +48,7 @@ app.get('/', async function (request, response) {
     });
 });
 
-app.get('/home', async function (request, response) {
+app.get('/home', async (request, response) => {
     if(!request.session.isAutorized){
         return response.redirect("/auth");
     };
@@ -61,7 +61,7 @@ app.get('/home', async function (request, response) {
     });
 });
 
-app.get("/auth", function (request, response) {
+app.get("/auth", (request, response) => {
     if(request.session.isAutorized){
         return response.redirect("/");
     }
@@ -71,7 +71,7 @@ app.get("/auth", function (request, response) {
     });
 });
 
-app.post("/auth", urlencodedParser, async function (request, response) {
+app.post("/auth", urlencodedParser, async (request, response) => {
     let user =  await require('./module/User').getUserByLogPass({
         login: request.body.login,
         password: request.body.password
@@ -87,12 +87,12 @@ app.post("/auth", urlencodedParser, async function (request, response) {
     return response.redirect("/auth");
 });
 
-app.get("/logout", urlencodedParser, function (request, response) {
+app.get("/logout", urlencodedParser, (request, response) => {
     request.session.isAutorized = false;
     return response.redirect("auth");
 });
 
-app.get("/meets", urlencodedParser, async function (request, response) {
+app.get("/meets", urlencodedParser, async (request, response) => {
 
     var meets = await require('./module/Meet').getMeetsByUser(request.session.login);
 
@@ -103,11 +103,11 @@ app.get("/meets", urlencodedParser, async function (request, response) {
     })
 });
 
-app.post("/meets", urlencodedParser, function (request, response) {
+app.post("/meets", urlencodedParser, (request, response) => {
     return response.redirect("/");
 });
 
-app.get("/addMeet", urlencodedParser, function (request, response) {
+app.get("/addMeet", urlencodedParser, (request, response) => {
     let errors = [];
 
     return response.render('addMeet', {
@@ -117,14 +117,14 @@ app.get("/addMeet", urlencodedParser, function (request, response) {
     });
 });
 
-app.get("/addMeet/:lat/:lng", urlencodedParser, function (request, response) {
+app.get("/addMeet/:lat/:lng", urlencodedParser, (request, response) => {
     return response.render('addMeet', {
         request: request,
         response: response
     });
 });
 
-app.post("/addMeet", urlencodedParser, function (request, response) {
+app.post("/addMeet", urlencodedParser, (request, response) => {
     if(request.body.nameInput){
         require('./module/Meet').createMeet({
             name: request.body.nameInput,
@@ -141,7 +141,7 @@ app.post("/addMeet", urlencodedParser, function (request, response) {
     }
 });
 
-app.get("/markers", urlencodedParser, async function (request, response) {
+app.get("/markers", urlencodedParser, async (request, response) => {
     let meets = await require('./module/Meet').getMeets();
     return response.json(meets);
 });
@@ -173,7 +173,7 @@ app.get("/meets/:id", urlencodedParser, async function (request, response) {
     });
 });
 
-app.post("/meets/:id", urlencodedParser, function(request, response) {
+app.post("/meets/:id", urlencodedParser, (request, response) => {
     if(request.body.join){
         require('./module/Meet').joinToTheMeet({
             meetId: request.session.meetId,
@@ -191,12 +191,12 @@ app.post("/meets/:id", urlencodedParser, function(request, response) {
     return response.redirect(`/meets/${request.session.meetId}`);
 });
 
-app.get("/users", urlencodedParser, async function (request, response) {
+app.get("/users", urlencodedParser, async (request, response) => {
     let users = await await require('./module/User').getAllUsers();
     return response.json(users);
 });
 
-app.get("/registration", urlencodedParser, function (request, response) {
+app.get("/registration", urlencodedParser, (request, response) => {
     var errors = [];
     if(request.session.regErrors){
         errors = request.session.regErrors;
@@ -210,7 +210,7 @@ app.get("/registration", urlencodedParser, function (request, response) {
     });
 });
 
-app.post("/registration", urlencodedParser, async function (request, response) {
+app.post("/registration", urlencodedParser, async (request, response) => {
     let errors = await require('./module/User').validate({
         login: request.body.login,
         password: request.body.password,
@@ -235,7 +235,7 @@ app.post("/registration", urlencodedParser, async function (request, response) {
     return response.redirect("/auth");
 });
 
-app.get("/user/:login", urlencodedParser, async function (request,response) {
+app.get("/user/:login", urlencodedParser, async (request,response) => {
     var user = await require('./module/User').getUserByLogin(request.params.login);
     console.log(user);
     return response.render("userPage",{

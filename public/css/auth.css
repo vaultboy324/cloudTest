@@ -1,0 +1,22 @@
+.container-fluid {
+    width: auto;
+    text-align: center;
+}
+
+.button-container{
+    text-align: right;
+}
+
+/*.container{
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+ */
+
+.auth-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
