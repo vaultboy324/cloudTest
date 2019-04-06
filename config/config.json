@@ -1,7 +1,7 @@
 {
   "port": 8080,
   "mongoose": {
-    "uri": "mongodb://localhost:27017/myService",
+    "uri": "mongodb://vaultboy324:gMG74DcT4EauPoImbOgzHqnkCSOXUkJgsiD4qyGQoLtX9rZtVfzRuN9DC4o3c1v6jiOzY33FhtkD9QHsD2ykJw==@vaultboy324.documents.azure.com:10255/?ssl=true&replicaSet=globaldb",
     "user": "vaultboy324",
     "password": "gMG74DcT4EauPoImbOgzHqnkCSOXUkJgsiD4qyGQoLtX9rZtVfzRuN9DC4o3c1v6jiOzY33FhtkD9QHsD2ykJw=="
   },
